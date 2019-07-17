@@ -4,7 +4,7 @@
 
 import UIKit
     // TODO: Mark the ViewController as conforming to the UITextFieldDelegate Protocol
-class ConversionViewController: UIViewController{ //, UITextFieldDelegate {
+class ConversionViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var celsiusLabel: UILabel!
     @IBOutlet var textField: UITextField!
@@ -37,6 +37,10 @@ class ConversionViewController: UIViewController{ //, UITextFieldDelegate {
     // modify the celsiusLabel text to be a single question mark
     // modify the celsiusLabel color to be 60% red, 60% green, and 40% blue (refer to the Developer Documentation for UIColor)
 
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        celsiusLabel.text = "?"
+        celsiusLabel.backgroundColor = UIColor(red: 0.60, green: 0.60, blue: 0.40, alpha: 0.90)
+    }
     
     // EVENT HANDLER METHOD : Called when TextField is Changed (notice the optional binding)
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
